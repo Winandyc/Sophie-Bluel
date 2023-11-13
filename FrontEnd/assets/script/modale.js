@@ -342,8 +342,6 @@ async function addWork(event) {
 
     const title = document.querySelector(".js-title").value;
     const categoryId = document.querySelector(".js-categoryId").value;
-    const image = document.querySelector(".js-image").files[0];
-
 
     if (title === "" || categoryId === "" || image === undefined) {
         alert("Merci de remplir tous les champs");
@@ -387,3 +385,23 @@ async function addWork(event) {
         }
     }
 }
+
+function addImage() {
+    const image = document.querySelector(".js-image");
+    const selectedImage = document.querySelector("#selectedImage");
+
+    image.addEventListener('change', (event) => {
+        const selectedFile = event.target.files[0];
+        if (selectedFile) {
+            // je créé un objet url pour l'image sélectionnée
+            const imageUrl = URL.createObjectURL(selectedFile);
+            //j'integre l'élement avec son url
+            selectedImage.src = imageUrl;
+            // const
+            // selectedImage.style.display = 'block';
+        }
+    });
+}
+
+addImage()
+

@@ -100,7 +100,7 @@
 }
 .form-group-photo i {
     color: #306685;
-    font-size: 90px;
+    font-size: 76px;
     font-weight: 100;
     margin: 20px;
     margin-top: -25px;
@@ -117,6 +117,7 @@
     height: 40px;
     background-color: #cbd6dc;
     color: #306685;
+    font-weight: 600;
     border-radius: 50px;
     cursor: pointer;
     margin-top: -10px;
@@ -124,7 +125,7 @@
 .form-group-photo::after {
     content: "jpg, png : 4mo max";
     position: absolute;
-    top: 315px;
+    top: 380px;
 }
 
 .form-group-title {
@@ -152,6 +153,7 @@
     font-size: 1.2em;
     border: none;
     box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    cursor: pointer;
 }
 .form-group-id label {
     margin: 3em 0 1em 0;
@@ -169,6 +171,7 @@
     text-align: center;
     border-radius: 60px;
     transition: all 0.5s ease;
+    cursor: pointer;
 }
 
 .modale-projet-form::after {
@@ -178,5 +181,5 @@
     width: 70%;
     margin: 40px auto;
     position: absolute;
-    bottom: 120px;
+    bottom: 190px;
 }

@@ -2,19 +2,87 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -24,8 +92,17 @@ time, mark, audio, video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -33,16 +110,20 @@ body {
   line-height: 1;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: "";
   content: none;
 }
@@ -74,13 +155,19 @@ section {
   margin: 50px 0;
 }
 
+nav a {
+  color: black;
+  font-weight: 400;
+  text-decoration: none;
+}
+
 h1 {
   display: flex;
   flex-direction: column;
   font-family: "Syne";
   font-size: 22px;
   font-weight: 800;
-  color: #B1663C;
+  color: #b1663c;
 }
 
 h1 > span {
@@ -93,11 +180,12 @@ h2 {
   font-family: "Syne";
   font-weight: 700;
   font-size: 30px;
-  color: #1D6154;
+  color: #1d6154;
 }
 
 nav ul {
   display: flex;
+  gap: 40px;
   align-items: center;
   list-style-type: none;
 }
@@ -108,7 +196,7 @@ nav li {
 }
 
 li:hover {
-  color: #B1663C;
+  color: #b1663c;
 }
 
 #introduction {
@@ -140,7 +228,6 @@ li:hover {
 
 #portfolio h2 {
   text-align: center;
-  margin-bottom: 1em;
 }
 
 .gallery {
@@ -195,7 +282,7 @@ input[type=submit] {
   font-family: "Syne";
   font-weight: 700;
   color: white;
-  background-color: #1D6154;
+  background-color: #1d6154;
   margin: 2em auto;
   width: 180px;
   text-align: center;
@@ -219,6 +306,23 @@ footer nav ul {
 .login a {
   text-decoration: underline;
   margin-bottom: 100px;
+}
+
+a {
+  text-decoration: none;
+}
+a h1 {
+  display: flex;
+  flex-direction: column;
+  font-family: "Syne";
+  font-size: 22px;
+  font-weight: 800;
+  color: #b1663c;
+}
+a h1 > span {
+  font-family: "Work Sans";
+  font-size: 10px;
+  letter-spacing: 0.1em;
 }
 
 /* FILTERS */
@@ -288,6 +392,16 @@ footer nav ul {
   color: black;
 }
 
+.js-modale {
+  color: black;
+  text-decoration: none;
+}
+
+#selectedImage {
+  height: 40px;
+  width: 40px;
+}
+
 .admin__rod .admin__modifer {
   color: white;
 }
@@ -296,6 +410,8 @@ footer nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 30px;
+  padding-bottom: 25px;
 }
 
 /* MODALE  GALERIE PHOTO*/
@@ -368,7 +484,7 @@ footer nav ul {
 .gallery__item-modale {
   display: flex;
   flex-direction: column;
-  margin: 0 5px;
+  margin: -10px 5px;
   width: 95px;
 }
 
@@ -399,8 +515,7 @@ footer nav ul {
 }
 
 .gallery__item-modale a {
-  position: relative;
-  bottom: 15px;
+  color: transparent;
 }
 
 .modale .js-modale-projet {
@@ -417,6 +532,7 @@ footer nav ul {
   width: 250px;
   border-radius: 60px;
   transition: all 0.5s ease;
+  text-decoration: none;
 }
 
 /* MODALE AJOUT PROJET */
@@ -549,7 +665,7 @@ footer nav ul {
 
 .form-group-photo i {
   color: #306685;
-  font-size: 90px;
+  font-size: 76px;
   font-weight: 100;
   margin: 20px;
   margin-top: -25px;
@@ -568,6 +684,7 @@ footer nav ul {
   height: 40px;
   background-color: #cbd6dc;
   color: #306685;
+  font-weight: 600;
   border-radius: 50px;
   cursor: pointer;
   margin-top: -10px;
@@ -576,7 +693,7 @@ footer nav ul {
 .form-group-photo::after {
   content: "jpg, png : 4mo max";
   position: absolute;
-  top: 315px;
+  top: 380px;
 }
 
 .form-group-title {
@@ -607,6 +724,7 @@ footer nav ul {
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  cursor: pointer;
 }
 
 .form-group-id label {
@@ -625,6 +743,7 @@ footer nav ul {
   text-align: center;
   border-radius: 60px;
   transition: all 0.5s ease;
+  cursor: pointer;
 }
 
 .modale-projet-form::after {
@@ -634,5 +753,5 @@ footer nav ul {
   width: 70%;
   margin: 40px auto;
   position: absolute;
-  bottom: 120px;
+  bottom: 190px;
 }/*# sourceMappingURL=main.css.map */

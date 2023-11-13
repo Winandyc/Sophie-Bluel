@@ -22,12 +22,12 @@
     <i class="fa-solid fa-pen-to-square"></i>
     <p>Mode édition</p>
   </div>
-  <a href="./login.html">
+  <!-- <a href="./login.html">
     <button>Publier les changements</button>
-  </a>
+  </a> -->
 </aside>
 
-<aside id="modale" class="modale" aria-hidden="true" style="display: none;"> <!-- Modale -->
+<aside id="modale" class="modale" aria-hidden="true" style="display: none;"> <!-- modale -->
   <div class="modale-wrapper js-modale-stop">
     <a href="" class="js-modale-close">
       <i class="fa-solid fa-xmark"></i>
@@ -36,8 +36,7 @@
     <div class="js-admin-projets">
       <!-- Génération des photos de façon dynamique -->
     </div>
-    <a href="#modaleProjet" class="js-modale-projet">Ajouter un projet</a> <!-- Modale -->
-    <a class="btn-clear-admin" href="#">Supprimer la galerie</a>
+    <a href="#modaleProjet" class="js-modale-projet">Ajouter une photo</a> <!-- modale -->
   </div>
 </aside>
 
@@ -52,13 +51,14 @@
       </a>
     </div>
 
-    <h2>Ajout d'un projet</h2>
+    <h2>Ajout photo</h2>
 
     <form class="modale-projet-form" action="" enctype="multipart/form-data">
 
       <div class="form-group-photo">
+        <img id="selectedImage" src="" alt="Image sélectionnée">
         <i class="fa-regular fa-image"></i>
-        <label for="photo">+ Ajouter une photo</label>
+        <label for="photo">+ Ajouter photo</label>
         <input type="file" name="photo" id="photo" class="js-image">
       </div>
 
@@ -76,13 +76,15 @@
         </select>
       </div>
 
-      <input type="submit" class="js-add-work" value="Ajouter le projet">
+      <input type="submit" class="js-add-work" value="Valider">
     </form>
   </div>
 </aside>
 
 <header>
-  <h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
+  <a href="index.html">
+    <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+  </a>
   <nav>
     <ul>
       <a href="#portfolio">
@@ -104,16 +106,10 @@
   <section id="introduction">
     <figure>
       <img src="./assets/images/sophie-bluel.png" alt="">
-      <div class="admin__modifer" style="display: none;">
-        <i class="fa-solid fa-pen-to-square"></i>
-        <a href="#modale" class="js-modale">Modifier</a> <!-- Modale -->
-      </div>
+      <!-- modale ? -->
     </figure>
     <article>
-      <div class="admin__modifer" aria-hidden="true" style="display: none;">
-        <i class="fa-solid fa-pen-to-square"></i>
-        <a href="#modale" class="js-modale">Modifier</a> <!-- Modale -->
-      </div>
+      <!-- modale ? -->
       <h2>Designer d'espace</h2>
       <p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du
         chantier.</p>
@@ -128,7 +124,7 @@
       <h2>Mes Projets</h2>
       <div class="admin__modifer" aria-hidden="true" style="display: none;">
         <i class="fa-solid fa-pen-to-square"></i>
-        <a href="#modale" class="js-modale">Modifier</a> <!-- Modale -->
+        <a href="#modale" class="js-modale">modifier</a> <!-- modale -->
       </div>
     </div>
     <div class="filters">

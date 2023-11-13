@@ -30,6 +30,17 @@
     column-gap: 5px;
     color: black;
 }
+
+.js-modale {
+    color: black;
+    text-decoration: none;
+}
+
+#selectedImage {
+    height: 40px;
+    width: 40px;
+}
+
 .admin__rod .admin__modifer {
     color: white;
 }
@@ -37,6 +48,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 30px;
+    padding-bottom: 25px;
 }
 
 /* MODALE  GALERIE PHOTO*/
@@ -107,7 +120,7 @@
 .gallery__item-modale {
     display: flex;
     flex-direction: column;
-    margin: 0 5px;
+    margin: -10px 5px;
     width: 95px;
 }
 
@@ -134,8 +147,7 @@
     cursor: pointer;
 }
 .gallery__item-modale a {
-    position: relative;
-    bottom: 15px;
+    color: transparent;
 }
 .modale .js-modale-projet {
     display: flex;
@@ -151,6 +163,7 @@
     width: 250px;
     border-radius: 60px;
     transition: all 0.5s ease;
+    text-decoration: none;
 }
 
 /* MODALE AJOUT PROJET */
