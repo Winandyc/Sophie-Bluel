@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -398,8 +399,25 @@ a h1 > span {
 }
 
 #selectedImage {
-  height: 40px;
-  width: 40px;
+  position: relative;
+}
+#selectedImage::before, #selectedImage::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* Styles pour masquer l'image sélectionnée avant et après l'ajout de l'image */
+  /* Exemple avec un fond rouge pour mieux visualiser */
+  background-color: white;
+  /* Autres styles nécessaires (comme la transparence) pour masquer les pseudos-éléments */
+}
+#selectedImage::before {
+  /* Styles pour masquer l'image avant d'ajouter une nouvelle image */
+  /* Par exemple, utiliser une opacité de 0 pour le masquer */
+  opacity: 0;
 }
 
 .admin__rod .admin__modifer {

@@ -92,12 +92,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     background-color: #e8f1f7;
     width: 500px;
     height: 200px;
     border-radius: 10px;
 }
+
 .form-group-photo i {
     color: #306685;
     font-size: 76px;
@@ -105,9 +105,11 @@
     margin: 20px;
     margin-top: -25px;
 }
+
 .form-group-photo input {
     display: none;
 }
+
 .form-group-photo label {
     font-family: "work sans";
     display: flex;

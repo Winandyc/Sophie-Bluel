@@ -393,6 +393,9 @@ function addImage() {
     image.addEventListener('change', (event) => {
         const selectedFile = event.target.files[0];
         if (selectedFile) {
+            const pic = document.querySelector(".selectedFile");
+            const styles = {}; // Déclaration de l'objet styles
+            styles.display = "none"; // Assignation de la valeur "none" à la propriété display de l'objet styles
             // je créé un objet url pour l'image sélectionnée
             const imageUrl = URL.createObjectURL(selectedFile);
             //j'integre l'élement avec son url

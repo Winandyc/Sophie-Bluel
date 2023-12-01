@@ -37,8 +37,29 @@
 }
 
 #selectedImage {
-    height: 40px;
-    width: 40px;
+    position: relative; // Pour positionner correctement les pseudos-éléments
+
+    &::before,
+    &::after {
+        content: ""; // Contenu vide
+        display: block; // Affichage en tant que bloc
+        position: absolute; // Positionnement absolu par rapport à #selectedImage
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        /* Styles pour masquer l'image sélectionnée avant et après l'ajout de l'image */
+        /* Exemple avec un fond rouge pour mieux visualiser */
+        background-color: white;
+        /* Autres styles nécessaires (comme la transparence) pour masquer les pseudos-éléments */
+    }
+
+    // Pour cacher le pseudos-élément before par défaut
+    &::before {
+        /* Styles pour masquer l'image avant d'ajouter une nouvelle image */
+        /* Par exemple, utiliser une opacité de 0 pour le masquer */
+        opacity: 0;
+    }
 }
 
 .admin__rod .admin__modifer {
