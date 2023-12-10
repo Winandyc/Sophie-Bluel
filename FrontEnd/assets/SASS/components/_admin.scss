@@ -38,28 +38,9 @@
 
 #selectedImage {
     position: relative; // Pour positionner correctement les pseudos-éléments
-
-    &::before,
-    &::after {
-        content: ""; // Contenu vide
-        display: block; // Affichage en tant que bloc
-        position: absolute; // Positionnement absolu par rapport à #selectedImage
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        /* Styles pour masquer l'image sélectionnée avant et après l'ajout de l'image */
-        /* Exemple avec un fond rouge pour mieux visualiser */
-        background-color: white;
-        /* Autres styles nécessaires (comme la transparence) pour masquer les pseudos-éléments */
-    }
-
-    // Pour cacher le pseudos-élément before par défaut
-    &::before {
-        /* Styles pour masquer l'image avant d'ajouter une nouvelle image */
-        /* Par exemple, utiliser une opacité de 0 pour le masquer */
-        opacity: 0;
-    }
+    height: 100%;
+    width: 26%;
+    display: none;
 }
 
 .admin__rod .admin__modifer {
@@ -91,12 +72,11 @@
     display: flex;
     flex-direction: column;
     overflow: auto;
-    max-width: calc(98vh - 20px);
-    max-height: calc(98vh - 20px);
     width: 675px;
+    height: 75vh;
     padding: 30px;
     background-color: white;
-    animation: slideFromTop 0.2s both;
+    border-radius: 10px;
 }
 
 .js-modale-close {
@@ -107,6 +87,7 @@
     display: flex;
     justify-content: center;
     margin: 20px 0 50px 0;
+    color: black;
 }
 
 .btn-admin {
@@ -124,11 +105,10 @@
 
 .js-admin-projets::after {
     display: flex;
-
     content: " ";
     border-top: 1px solid black;
     height: 1px;
-    width: 90%;
+    width: 100%;
     margin: 40px auto;
 }
 
@@ -179,7 +159,7 @@
     color: white;
     background-color: #1d6154;
     border: 2px solid #1d6154;
-    margin: 0 auto 30px auto;
+    margin: 0 auto;
     height: 50px;
     width: 250px;
     border-radius: 60px;

@@ -96,7 +96,7 @@ btnId3.addEventListener("click", () => { // Hôtels & restaurants
 /////////////////////////////////////////////////////
 // INDEX : 1- GESTION BOITE MODALE                 //
 //         2- GESTION TOKEN LOGIN                  //
-//         3- GENERATION DS LA MODALE              //
+//         3- GENERATION DANS LA MODALE            //
 //         4- GESTION SUPPRESSION PROJET           //
 //         5- GESTION AJOUT PROJET                 //
 //         6- GESTION AJOUT D'UN PROJET            //
@@ -155,8 +155,11 @@ async function modaleProjets() {
 
         const p = document.createElement("p");
         div.appendChild(p);
-        p.classList.add(dataAdmin[i].id, "js-delete-work");
-
+        p.classList.add(dataAdmin[i].id, "js-delete-work"); // GESTION DE SUPPRESION DES ELEMENTS PAR ID
+        //Je fais une fonction asynchrone où j'enregistre dans un tableau "dataAdmin" tous les projets (fetch).
+        //Je parcours à l'aide d'une boucle "for" chaque élément, individuellement.
+        //Pour chaque élément, je créer un <p> (enfant de la div) dans lequel j'attribue l'id de chaque projet et une classe : "js-delete-work".
+        //Suite ligne 242
 
         const icon = document.createElement("i");
         icon.classList.add("fa-solid", "fa-trash-can");
@@ -236,12 +239,21 @@ function adminPanel() {
 // Event listener sur les boutons supprimer par apport a leur id
 function deleteWork() {
     let btnDelete = document.querySelectorAll(".js-delete-work");
-    for (let i = 0; i < btnDelete.length; i++) {
-        btnDelete[i].addEventListener("click", deleteProjets);
+    for (let i = 0; i < btnDelete.length; i++) { //variable i = index pour parcourir mon tableau "btnDelete"
+
+        //Traduction de la ligne ci-dessus (242) : boucle "for" - variable "let" - index initié à 0 - SI mon index est < à la longueur
+        //maximale (= "length") de mon tableau "btnDelete", alors index +1.
+        //Tant que la condition est TRUE, alors le code est exécuté (ligne 248).
+
+        btnDelete[i].addEventListener("click", deleteProjets); //ajout écouteur au clic sur chaque <p> (car je suis dans une boucle for qui parcourt mon tableau)
+        console.log(btnDelete)
+       // console.log(btnDelete[i])                      Pour voir dans la console du navigateur mes <p> (class avec numéros)
     }
 }
 
 // Supprimer le projet
+//Explications :
+
 async function deleteProjets() {
 
     console.log("DEBUG DEBUT DE FUNCTION SUPRESSION")
@@ -257,7 +269,7 @@ async function deleteProjets() {
             console.log(response)
             // Token good
             if (response.status === 204) {
-                console.log("DEBUG SUPPRESION DU PROJET " + this.classList[0])
+                console.log("DEBUG SUPPRESION DU PROJET" + this.classList[0])
                 refreshPage(this.classList[0])
             }
             // Token inorrect
@@ -342,6 +354,7 @@ async function addWork(event) {
 
     const title = document.querySelector(".js-title").value;
     const categoryId = document.querySelector(".js-categoryId").value;
+    const image = selectedImage;
 
     if (title === "" || categoryId === "" || image === undefined) {
         alert("Merci de remplir tous les champs");
@@ -381,30 +394,31 @@ async function addWork(event) {
         }
 
         catch (error) {
-            console.log(error);
         }
     }
 }
-
+// prévisualisation de l'image
+let selectedImage = null;
 function addImage() {
-    const image = document.querySelector(".js-image");
-    const selectedImage = document.querySelector("#selectedImage");
+    const paragraphFile = document.querySelector(".form-group-photo p");
+    const labelFile = document.querySelector(".form-group-photo label");
+    const iconeFile = document.querySelector(".fa-image");
+    const inputFile = document.querySelector(".js-image");
+    const displayedImage = document.querySelector("#selectedImage");
 
-    image.addEventListener('change', (event) => {
+    inputFile.addEventListener('change', (event) => {
         const selectedFile = event.target.files[0];
         if (selectedFile) {
-            const pic = document.querySelector(".selectedFile");
-            const styles = {}; // Déclaration de l'objet styles
-            styles.display = "none"; // Assignation de la valeur "none" à la propriété display de l'objet styles
-            // je créé un objet url pour l'image sélectionnée
+            paragraphFile.style.display = "none";
+            labelFile.style.display = "none";
+            iconeFile.style.display = "none";
+
             const imageUrl = URL.createObjectURL(selectedFile);
-            //j'integre l'élement avec son url
-            selectedImage.src = imageUrl;
-            // const
-            // selectedImage.style.display = 'block';
+            displayedImage.src = imageUrl;
+            displayedImage.style.display = "flex";
+            selectedImage = selectedFile; // Assignation à la variable globale
         }
     });
 }
 
-addImage()
-
+addImage();
