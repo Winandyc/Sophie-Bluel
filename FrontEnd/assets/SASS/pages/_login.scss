@@ -1,13 +1,14 @@
 .login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-}
-.login a {
-    text-decoration: underline;
-    margin-bottom: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 80vh;
+
+	a {
+		text-decoration: underline;
+		margin-bottom: 100px;
+	}
 }
 
 a {
@@ -20,10 +21,11 @@ a {
 		font-size: 22px;
 		font-weight: 800;
 		color: #b1663c;
-	}
-	h1 > span {
-		font-family: "Work Sans";
-		font-size: 10px;
-		letter-spacing: 0.1em;
+
+		> span {
+			font-family: "Work Sans";
+			font-size: 10px;
+			letter-spacing: 0.1em;
+		}
 	}
 }

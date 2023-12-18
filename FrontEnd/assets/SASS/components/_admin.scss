@@ -12,23 +12,23 @@
     width: 100%;
     height: 40px;
     background-color: black;
-}
 
-.admin__rod button {
-    font-family: "work sans";
-    font-weight: 550;
-    background-color: white;
-    border-radius: 60px;
-    padding: 5px 15px;
-    margin: 0 25px;
-    border: none;
-    transition: all 0.2s ease;
-}
+    button {
+        font-family: "work sans";
+        font-weight: 550;
+        background-color: white;
+        border-radius: 60px;
+        padding: 5px 15px;
+        margin: 0 25px;
+        border: none;
+        transition: all 0.2s ease;
+    }
 
-.admin__modifer {
-    display: flex;
-    column-gap: 5px;
-    color: black;
+    & .admin__modifer {
+        display: flex;
+        column-gap: 5px;
+        color: black;
+    }
 }
 
 .js-modale {
@@ -43,9 +43,12 @@
     display: none;
 }
 
-.admin__rod .admin__modifer {
-    color: white;
+.admin__rod {
+    & .admin__modifer {
+        color: white;
+    }
 }
+
 .portfolio-title {
     display: flex;
     justify-content: center;
@@ -66,28 +69,29 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     animation: fadeIn 0.2s both;
-}
 
-.modale-wrapper {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    width: 675px;
-    height: 75vh;
-    padding: 30px;
-    background-color: white;
-    border-radius: 10px;
-}
+    &-wrapper {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        width: 675px;
+        height: 75vh;
+        padding: 30px;
+        background-color: white;
+        border-radius: 10px;
+    }
 
-.js-modale-close {
-    display: flex;
-    justify-content: flex-end;
-}
-.modale-wrapper h2 {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0 50px 0;
-    color: black;
+    & .js-modale-close {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &-wrapper h2 {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0 50px 0;
+        color: black;
+    }
 }
 
 .btn-admin {
@@ -96,6 +100,7 @@
     width: 300px;
     margin: 0px auto 20px auto;
 }
+
 .btn-clear-admin {
     display: flex;
     justify-content: center;
@@ -118,57 +123,63 @@
     display: flex;
     flex-wrap: wrap;
 }
+
 .gallery__item-modale {
     display: flex;
     flex-direction: column;
     margin: -10px 5px;
     width: 95px;
+
+    img {
+        width: 95px;
+        height: 120px;
+        object-fit: cover;
+        margin-bottom: 5px;
+    }
+
+    .fa-trash-alt:before,
+    .fa-trash-can:before {
+        /* position: relative; */
+        color: white;
+        background-color: black;
+        padding: 5px;
+        border-radius: 20%;
+    }
+
+    p {
+        position: relative;
+        bottom: 116px;
+        left: 68px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    a {
+        color: transparent;
+    }
 }
 
-.gallery__item-modale img {
-    width: 95px;
-    height: 120px;
-    object-fit: cover;
-    margin-bottom: 5px;
-}
-.fa-trash-alt:before,
-.fa-trash-can:before {
-    /* position: relative; */
-    color: white;
-    background-color: black;
-    padding: 5px;
-    border-radius: 20%;
-}
-.gallery__item-modale p {
-    position: relative;
-    bottom: 116px;
-    left: 68px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
-.gallery__item-modale a {
-    color: transparent;
-}
-.modale .js-modale-projet {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Syne";
-    font-weight: 700;
-    color: white;
-    background-color: #1d6154;
-    border: 2px solid #1d6154;
-    margin: 0 auto;
-    height: 50px;
-    width: 250px;
-    border-radius: 60px;
-    transition: all 0.5s ease;
-    text-decoration: none;
+.modale {
+    & .js-modale-projet {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Syne";
+        font-weight: 700;
+        color: white;
+        background-color: #1d6154;
+        border: 2px solid #1d6154;
+        margin: 0 auto;
+        height: 50px;
+        width: 250px;
+        border-radius: 60px;
+        transition: all 0.5s ease;
+        text-decoration: none;
+    }
 }
 
 /* MODALE AJOUT PROJET */
-
 .modale-projet {
     position: fixed;
     top: 0;
@@ -180,9 +191,10 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     animation: fadeIn 0.4s both;
-}
-.modale-projet-logo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    &-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }

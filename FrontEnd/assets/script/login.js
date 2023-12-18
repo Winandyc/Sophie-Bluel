@@ -53,7 +53,9 @@ function login(id) {
     else {
         // verification de l'email et du mot de passe
         fetch('http://localhost:5678/api/users/login', {
-            method: 'POST',
+            method: 'POST', // Pour récupérer le token d'authentification = requête POST vers l'URL API,
+            // transmettant les informations de connexion au format JSON. Si succès, il récupère le token dans la
+            // réponse pour l'utiliser dans les appels API ultérieurs.
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
