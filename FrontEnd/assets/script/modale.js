@@ -3,6 +3,13 @@ const btnAll = document.querySelector(".filter__btn-id-null");
 const btnId1 = document.querySelector(".filter__btn-id-1");
 const btnId2 = document.querySelector(".filter__btn-id-2");
 const btnId3 = document.querySelector(".filter__btn-id-3");
+const inputFile = document.querySelector(".js-image");
+const displayedImage = document.querySelector("#selectedImage");
+const inputTitle = document.querySelector(".js-title");
+const labelFile = document.querySelector(".form-group-photo label");
+const iconeFile = document.querySelector(".fa-image");
+const paragraphFile = document.querySelector(".form-group-photo p");
+const inputCategory = document.querySelector(".js-categoryId");
 
 const sectionProjets = document.querySelector(".gallery");
 
@@ -158,8 +165,15 @@ const openModale = function (e) {
     modale.addEventListener("click", closeModale)
     modale.querySelector(".js-modale-close").addEventListener("click", closeModale)
     modale.querySelector(".js-modale-stop").addEventListener("click", stopPropagation)
-
 };
+
+// Femerture modale au click extérieur
+
+const modaleClickClose = document.querySelector(".modale")
+modaleClickClose.addEventListener("click", () => {
+    // console.log("click exterieur modale close")
+    modale.style.display = 'none';
+})
 
 // Génère les projets dans la modale admin
 async function modaleProjets() {
@@ -198,6 +212,44 @@ async function modaleProjets() {
     deleteWorks()
 }
 
+// Prévisualisation enlever au click sur flèche retour
+const arrowLeft = document.querySelector(".fa-arrow-left")
+arrowLeft.addEventListener("click", () => {
+    // console.log("fleche retour")
+    inputFile.value = ''; // Réinitialise la valeur de l'input file
+    inputTitle.value = '';
+    displayedImage.style.display = "none"; // Cache l'image sélectionnée
+    paragraphFile.style.display = "flex";
+    labelFile.style.display = "flex";
+    iconeFile.style.display = "flex";
+    inputCategory.value = "1";
+})
+
+// Prévisualisation enlever au click en dehors de la modale
+const clickExt = document.querySelector(".modale-projet")
+clickExt.addEventListener("click", () => {
+    // console.log("click extérieur")
+    inputFile.value = ''; // Réinitialise la valeur de l'input file
+    inputTitle.value = '';
+    displayedImage.style.display = "none"; // Cache l'image sélectionnée
+    paragraphFile.style.display = "flex";
+    labelFile.style.display = "flex";
+    iconeFile.style.display = "flex";
+    inputCategory.value = "1";
+})
+
+// Prévisualisation enlever au click sur la croix
+const clickClose = document.querySelector(".fa-xmark")
+clickClose.addEventListener("click", () => {
+    // console.log("click sur la croix")
+    inputFile.value = ''; // Réinitialise la valeur de l'input file
+    inputTitle.value = '';
+    displayedImage.style.display = "none"; // Cache l'image sélectionnée
+    paragraphFile.style.display = "flex";
+    labelFile.style.display = "flex";
+    iconeFile.style.display = "flex";
+    inputCategory.value = "1";
+})
 
 //  Ferme la modale
 const closeModale = function (e) {
@@ -209,13 +261,6 @@ const closeModale = function (e) {
     modale.removeAttribute("aria-modal")
 
     modale.querySelector(".js-modale-close").removeEventListener("click", closeModale)
-
-    // Fermeture de la modale apres 400ms
-    window.setTimeout(function () {
-        modale.style.display = "none"
-        modale = null
-        resetmodaleSectionProjets()
-    }, 300)
 };
 
 
@@ -333,7 +378,6 @@ const openModaleProjet = function (e) {
     modaleProjet.addEventListener("click", closeModaleProjet)
     modaleProjet.querySelector(".js-modale-close").addEventListener("click", closeModaleProjet)
     modaleProjet.querySelector(".js-modale-stop").addEventListener("click", stopPropagation)
-
     modaleProjet.querySelector(".js-modale-return").addEventListener("click", backToModale)
 };
 
@@ -413,15 +457,14 @@ async function addWork(event) {
                 backToModale(event); // Revenir à la modale précédente
                 generationProjets(data, null); // Génère des projets avec des données spécifiques
                 // Cache les éléments d'interface pour l'ajout de l'image
-                const paragraphFile = document.querySelector(".form-group-photo p");
-                const labelFile = document.querySelector(".form-group-photo label");
-                const iconeFile = document.querySelector(".fa-image");
                 const inputFile = document.querySelector(".js-image");
                 const displayedImage = document.querySelector("#selectedImage");
                 paragraphFile.style.display = "flex";
                 labelFile.style.display = "flex";
                 iconeFile.style.display = "flex";
                 inputFile.value = '';
+                inputTitle.value = '';
+                inputCategory.value = "1";
                 displayedImage.style.display = "none"; // Affiche l'image sélectionnée
 
             } else if (response.status === 400) {
@@ -446,8 +489,6 @@ function addImage() {
     const paragraphFile = document.querySelector(".form-group-photo p");
     const labelFile = document.querySelector(".form-group-photo label");
     const iconeFile = document.querySelector(".fa-image");
-    const inputFile = document.querySelector(".js-image");
-    const displayedImage = document.querySelector("#selectedImage");
 
     // Ajoute un écouteur d'événement sur le changement de l'élément input de type fichier
     inputFile.addEventListener('change', (event) => {
