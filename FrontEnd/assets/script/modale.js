@@ -256,13 +256,10 @@ const closeModale = function (e) {
     e.preventDefault()
     if (modale === null) return
 
-
     modale.setAttribute("aria-hidden", "true")
     modale.removeAttribute("aria-modal")
-
-    modale.querySelector(".js-modale-close").removeEventListener("click", closeModale)
+    modaleClickClose.style.display = "none"
 };
-
 
 // Définit la "border" du click pour fermer la modale
 const stopPropagation = function (e) {
@@ -271,13 +268,6 @@ const stopPropagation = function (e) {
 // Selectionne les éléments qui ouvrent la modale
 document.querySelectorAll(".js-modale").forEach(a => {
     a.addEventListener("click", openModale)
-});
-// Ferme la modale avec la touche echap
-window.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" || e.key === "Esc") {
-        closeModale(e)
-        closeModaleProjet(e)
-    }
 });
 
 
